@@ -1,0 +1,276 @@
+:root {
+    --bg-color: #170d14;
+    --card-bg: #251620;
+    --accent-color: #ffb7d5;
+    --text-color: #f3e5ee;
+    --text-muted: #bfa3b5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Halaman Manajemen */
+.page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* KOTAK KADO ANIMASI */
+.gift-container {
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+.gift-box {
+    width: 120px;
+    height: 120px;
+    background-color: #9c27b0;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.gift-lid {
+    width: 130px;
+    height: 30px;
+    background-color: #ab47bc;
+    position: absolute;
+    top: -25px;
+    left: -5px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.gift-ribbon {
+    width: 20px;
+    height: 100%;
+    background-color: #ffd700;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gift-ribbon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-color: #ffd700;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -50px;
+    width: 120px;
+}
+
+.tap-text {
+    margin-top: 30px;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* KONTEN UTAMA */
+#main-page {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-header {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    color: var(--text-color);
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 15px 0;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.8rem; }
+
+.pink-text {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.intro-text {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.scroll-indicator {
+    margin-top: 60px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--text-muted), transparent);
+    margin: 40px 0;
+}
+
+/* KARTU SURAT & GRID */
+.card {
+    background-color: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.signature {
+    text-align: right;
+    font-weight: bold;
+    color: var(--accent-color) !important;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.grid-item {
+    background-color: var(--card-bg);
+    padding: 20px 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.grid-item h3 {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.grid-item p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* SEKSI TAMAN BUNGA */
+.garden-section { margin: 50px 0; }
+.flower-row {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.garden-flower {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.garden-flower:hover { transform: scale(1.3); }
+.wish-box {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    min-height: 24px;
+}
+
+/* GALERI FOTO */
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.photo-frame {
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(40%);
+}
+
+.photo-frame p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+.main-footer {
+    padding: 80px 0 40px 0;
+}
+
+/* EFEK KELOPAK BUNGA JATUH */
+.scrolling-flowers {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    background-color: #ffb7d5;
+    border-radius: 150% 0 150% 150%;
+    opacity: 0.7;
+    animation: fade-down linear infinite;
+}
+
+@keyframes fade-down {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
